@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <limits.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define OUTPUT_BUF_SIZE 1024
 #define BUF_FLUSH -1
@@ -74,7 +75,8 @@ int _putchar(int c);
 /* print_functions.c module */
 int print_char(va_list ap, params_t *params);
 int print_int(va_list ap, params_t *params);
-int print_string(va_list ap, params_t *params);
+/*int print_string(va_list ap, params_t *params);*/
+int print_string(char *c);
 int print_percent(va_list ap, params_t *params);
 int print_S(va_list ap, params_t *params);
 
@@ -104,7 +106,8 @@ int print_rot13(va_list ap, params_t *params);
 /* print_number.c module */
 int _isdigit(int c);
 int _strlen(char *s);
-int print_number(char *str, params_t *params);
+/*int print_number(char *str, params_t *params);*/
+int print_number(int n);
 int print_number_right_shift(char *str, params_t *params);
 int print_number_left_shift(char *str, params_t *params);
 
