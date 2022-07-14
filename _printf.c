@@ -12,6 +12,7 @@ int _printf(const char *format, ...)
 	int len;
 
 	va_list list;
+
 	va_start(list, format);
 	len = vfprintf(stdout, format, list);
 	va_end(list);
