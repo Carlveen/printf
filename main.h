@@ -119,4 +119,5 @@ char *get_precision(char *p, params_t *params, va_list ap);
 int _printf(const char *format, ...);
 /* extra prototypes*/
 void format_b(va_list valist, char *buffer, int *index);
+int print_buffer(char *buf, unsigned int nbf);
 #endif /*_MAIN_H_*/
