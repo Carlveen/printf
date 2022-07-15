@@ -120,4 +120,5 @@ int _printf(const char *format, ...);
 /* extra prototypes*/
 void format_b(va_list valist, char *buffer, int *index);
 int print_buffer(char *buf, unsigned int nbf);
+insigned; int hand_buffer(char *buf, char c, unsigned int ibf);
 #endif /*_MAIN_H_*/
