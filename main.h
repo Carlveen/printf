@@ -75,8 +75,7 @@ int _putchar(int c);
 /* print_functions.c module */
 int print_char(va_list ap, params_t *params);
 int print_int(va_list ap, params_t *params);
-/*int print_string(va_list ap, params_t *params);*/
-int print_string(char *c);
+int print_string(va_list ap, params_t *params);
 int print_percent(va_list ap, params_t *params);
 int print_S(va_list ap, params_t *params);
 
@@ -106,8 +105,7 @@ int print_rot13(va_list ap, params_t *params);
 /* print_number.c module */
 int _isdigit(int c);
 int _strlen(char *s);
-/*int print_number(char *str, params_t *params);*/
-int print_number(int n);
+int print_number(char *str, params_t *params);
 int print_number_right_shift(char *str, params_t *params);
 int print_number_left_shift(char *str, params_t *params);
 
@@ -119,5 +117,6 @@ char *get_precision(char *p, params_t *params, va_list ap);
 
 /* _prinf.c module */
 int _printf(const char *format, ...);
-
+/* extra prototypes*/
+void format_b(va_list valist, char *buffer, int *index);
 #endif /*_MAIN_H_*/
