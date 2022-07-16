@@ -1,21 +1,50 @@
 #include "main.h"
 
 /**
- * _printf - pritns out a formatted string
- * @format: the string to be formatted
+ * _printf - prints and input into the standard output
+ * @format: the format string
  *
- * Return: the length of the string
+ * Return: integer
  */
-
 int _printf(const char *format, ...)
 {
-	int len;
+	int sum = 0;
+	va_list ap;
+	char *p, *start;
 
-	va_list list;
+	params_t params = PARAMS_INIT;
 
-	va_start(list, format);
-	len = vfprintf(stdout, format, list);
-	va_end(list);
+	va_start(ap, format);
 
-	return (len);
+	if (!format || (format[0] == '%' && !format[1]))/* checking for NULL char */
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+	for (p = (char *)format; *p; p++)
+	{
+		init_params(&params, ap);
+		if (*p != '%')/*checking for the % specifier*/
+			sum += _putchar(*p);
+		continue;
+	}
+	start = p;
+	p++;
+	while (get_flag(p, &params)) /* while char at p is flag character */
+	{
+		p++;
+	}
+	p = get_width(p, &params, ap);
+	p = get_precision(p, &params, ap);
+	if (get_modifier(p, &params))
+		p++;
+	if (!get_specifier(p))
+		sum += print_from_to(start, p,
+				params.l_modifier || params.h_modifier ? p - 1 : 0);
+
+	else
+	sum += get_print_func(p, ap, &params);
+}
+_putchar(BUF_FLUSH);
+va_end(ap);
+return (sum);
 }
